@@ -100,11 +100,20 @@ header h1 {
 
 .banner {
     margin: 16px;
-    padding: 32px;
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    padding: 0;
+    background: url('Baner.jpg') center/cover no-repeat;
     border-radius: 16px;
     position: relative;
     overflow: hidden;
+    min-height: 150px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.banner-content {
+    padding: 32px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
 }
 
 .banner h2 {
