@@ -59,3 +59,9 @@ function selectItem(itemId) {
 
 // Initialize app
 renderItems();
+
+// Hide loading screen after 2 seconds
+setTimeout(() => {
+    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'block';
+}, 2000);

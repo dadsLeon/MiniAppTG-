@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app">
+    <!-- Loading screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+    </div>
+
+    <div class="app" id="mainApp" style="display: none;"></div>
         <header>
             <h1>Portals</h1>
             <button class="close-btn" onclick="Telegram.WebApp.close()">✕</button>
