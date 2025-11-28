@@ -100,8 +100,9 @@ header h1 {
 
 .banner {
     margin: 16px;
-    height: 180px;
-    background: url('Baner.jpg') center/contain no-repeat;
+    width: calc(100% - 32px);
+    aspect-ratio: 16/9;
+    background: url('Baner.jpg') center/cover no-repeat;
     border-radius: 16px;
     overflow: hidden;
 }
