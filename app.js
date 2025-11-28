@@ -1,6 +1,12 @@
 // Initialize Telegram WebApp
-const tg = window.Telegram.WebApp;
-tg.expand();
+const tg = window.Telegram?.WebApp;
+
+// Expand app if running in Telegram
+if (tg) {
+    tg.expand();
+    tg.setHeaderColor('#1a1a1a');
+    tg.setBackgroundColor('#1a1a1a');
+}
 
 // Sample items data
 const items = [
@@ -31,12 +37,12 @@ function renderItems() {
 // Handle item selection
 function selectItem(itemId) {
     const item = items.find(i => i.id === itemId);
-    tg.showAlert(`Selected: ${item.name} #${item.id}`);
+    if (tg && tg.showAlert) {
+        tg.showAlert(`Selected: ${item.name} #${item.id}`);
+    } else {
+        alert(`Selected: ${item.name} #${item.id}`);
+    }
 }
 
 // Initialize app
 renderItems();
-
-// Set theme colors
-tg.setHeaderColor('#1a1a1a');
-tg.setBackgroundColor('#1a1a1a');
