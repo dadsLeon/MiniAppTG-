@@ -100,11 +100,25 @@ header h1 {
 
 .banner {
     margin: 16px;
-    width: calc(100% - 32px);
-    aspect-ratio: 16/9;
-    background: url('Baner.jpg') center/cover no-repeat;
+    padding: 32px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
     border-radius: 16px;
+    position: relative;
     overflow: hidden;
+}
+
+.banner h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.banner .status {
+    background: #fbbf24;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .tabs {
