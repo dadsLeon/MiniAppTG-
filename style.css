@@ -62,7 +62,7 @@ body {
 .app {
     max-width: 600px;
     margin: 0 auto;
-    padding-bottom: 80px;
+    padding: 16px 0 80px 0;
 }
 
 header {
@@ -100,7 +100,7 @@ header h1 {
 
 .banner {
     margin: 16px;
-    height: 140px;
+    height: 100px;
     background: url('Baner.jpg') center/cover no-repeat, linear-gradient(135deg, #f59e0b, #d97706);
     border-radius: 16px;
     overflow: hidden;
