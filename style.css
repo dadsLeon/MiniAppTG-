@@ -100,8 +100,8 @@ header h1 {
 
 .banner {
     margin: 16px;
-    height: 80px;
-    background: url('Baner.jpg') center/cover no-repeat, linear-gradient(135deg, #f59e0b, #d97706);
+    height: 120px;
+    background: url('Baner.jpg') center/contain no-repeat #1a1a1a;
     border-radius: 16px;
     overflow: hidden;
 }
