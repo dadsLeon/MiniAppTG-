@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portals Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Portals</h1>
+            <button class="close-btn" onclick="Telegram.WebApp.close()">✕</button>
+        </header>
+
+        <div class="balance">
+            <div class="stars">✨ <span id="stars">0</span></div>
+            <div class="ton">💎 <span id="ton">0</span> TON</div>
+        </div>
+
+        <div class="banner">
+            <h2>Season 2</h2>
+            <p class="status">is open</p>
+        </div>
+
+        <nav class="tabs">
+            <button class="tab active">All items</button>
+            <button class="tab">Collections</button>
+            <button class="tab">Bundles</button>
+        </nav>
+
+        <div class="filters">
+            <select class="filter">
+                <option>Collection: All</option>
+            </select>
+            <select class="filter">
+                <option>Model: All</option>
+            </select>
+            <select class="filter">
+                <option>Background: All</option>
+            </select>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="🔍 Search by ID">
+        </div>
+
+        <div class="items-grid" id="itemsGrid"></div>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn active">
+                <span class="icon">🏪</span>
+                <span>Store</span>
+            </button>
+            <button class="nav-btn">
+                <span class="icon">🎁</span>
+                <span>My gifts</span>
+            </button>
+            <button class="nav-btn">
+                <span class="icon">⭐</span>
+                <span>Season</span>
+            </button>
+            <button class="nav-btn">
+                <span class="icon">👤</span>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
