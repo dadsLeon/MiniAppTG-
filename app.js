@@ -57,6 +57,34 @@ function selectItem(itemId) {
     }
 }
 
+// Shuffle items randomly
+function shuffleItems() {
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+    renderItems();
+}
+
+// Add event listeners to tabs
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            shuffleItems();
+        });
+    });
+
+    const filters = document.querySelectorAll('.filter');
+    filters.forEach(filter => {
+        filter.addEventListener('change', () => {
+            shuffleItems();
+        });
+    });
+});
+
 // Initialize app
 renderItems();
 
