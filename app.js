@@ -1,11 +1,24 @@
+// Debug info
+console.log('App started');
+console.log('Telegram object:', window.Telegram);
+
 // Initialize Telegram WebApp
 const tg = window.Telegram?.WebApp;
+console.log('WebApp object:', tg);
 
 // Expand app if running in Telegram
 if (tg) {
+    console.log('Running in Telegram');
+    tg.ready();
     tg.expand();
-    tg.setHeaderColor('#1a1a1a');
-    tg.setBackgroundColor('#1a1a1a');
+    try {
+        tg.setHeaderColor('#1a1a1a');
+        tg.setBackgroundColor('#1a1a1a');
+    } catch (e) {
+        console.log('Color setting error:', e);
+    }
+} else {
+    console.log('Not running in Telegram');
 }
 
 // Sample items data
