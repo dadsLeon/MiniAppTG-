@@ -111,7 +111,53 @@ function init() {
     
     // Hide loading after 1 second
     setTimeout(hideLoading, 1000);
+    
+    // Show modal after 10 seconds
+    setTimeout(showModal, 10000);
 }
+
+// Modal functions
+function showModal() {
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Modal event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    const modalClose = document.querySelector('.modal-close');
+    const modalBtn = document.getElementById('modalBtn');
+    const modalInput = document.getElementById('modalInput');
+    
+    if (modalClose) {
+        modalClose.onclick = closeModal;
+    }
+    
+    if (modalBtn) {
+        modalBtn.onclick = function() {
+            const inputValue = modalInput ? modalInput.value : '';
+            console.log('Input value:', inputValue);
+            // Здесь можешь добавить свою логику
+            closeModal();
+        };
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+});
 
 // Start when page loads
 if (document.readyState === 'loading') {
