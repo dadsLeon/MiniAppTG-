@@ -85,6 +85,7 @@ function init() {
     const storePage = document.getElementById('storePage');
     const myGiftsPage = document.getElementById('myGiftsPage');
     const seasonPage = document.getElementById('seasonPage');
+    const profilePage = document.getElementById('profilePage');
     
     navBtns.forEach((btn, index) => {
         btn.onclick = function() {
@@ -94,6 +95,7 @@ function init() {
             storePage.style.display = 'none';
             myGiftsPage.style.display = 'none';
             seasonPage.style.display = 'none';
+            profilePage.style.display = 'none';
             
             if (index === 0) { // Store
                 storePage.style.display = 'block';
@@ -101,6 +103,8 @@ function init() {
                 myGiftsPage.style.display = 'block';
             } else if (index === 2) { // Season
                 seasonPage.style.display = 'block';
+            } else if (index === 3) { // Profile
+                profilePage.style.display = 'block';
             }
         };
     });
