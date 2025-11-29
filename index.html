@@ -17,6 +17,8 @@
     </div>
 
     <div class="app" id="mainApp" style="display: none;">
+        <!-- Store Page -->
+        <div id="storePage">
         <div class="balance">
             <div class="stars">✨ <span id="stars">0</span></div>
             <div class="ton">💎 <span id="ton">0</span> TON</div>
@@ -47,6 +49,21 @@
         </div>
 
         <div class="items-grid" id="itemsGrid"></div>
+        </div>
+
+        <!-- My Gifts Page -->
+        <div id="myGiftsPage" style="display: none;">
+            <h1 style="font-size: 32px; margin-bottom: 8px;">My Inventory</h1>
+            <p style="color: #888; margin-bottom: 40px;">Manage your Telegram gifts collection</p>
+            
+            <div style="text-align: center; padding: 60px 20px;">
+                <div style="font-size: 80px; margin-bottom: 20px;">🎁</div>
+                <h2 style="font-size: 24px; margin-bottom: 12px;">Your inventory is empty</h2>
+                <p style="color: #888; margin-bottom: 30px;">Start collecting gifts to see them here</p>
+                <button style="background: linear-gradient(135deg, #a855f7, #3b82f6); color: #fff; border: none; padding: 14px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;">Add Your First Gift</button>
+                <p style="color: #3b82f6; margin-top: 20px; cursor: pointer;">How it works?</p>
+            </div>
+        </div>
 
         <nav class="bottom-nav">
             <button class="nav-btn active">

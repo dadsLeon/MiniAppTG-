@@ -80,6 +80,26 @@ function init() {
         filter.onchange = () => shuffle();
     });
     
+    // Bottom nav
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const storePage = document.getElementById('storePage');
+    const myGiftsPage = document.getElementById('myGiftsPage');
+    
+    navBtns.forEach((btn, index) => {
+        btn.onclick = function() {
+            navBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (index === 0) { // Store
+                storePage.style.display = 'block';
+                myGiftsPage.style.display = 'none';
+            } else if (index === 1) { // My gifts
+                storePage.style.display = 'none';
+                myGiftsPage.style.display = 'block';
+            }
+        };
+    });
+    
     // Hide loading after 1 second
     setTimeout(hideLoading, 1000);
 }
