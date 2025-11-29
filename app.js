@@ -116,6 +116,28 @@ function init() {
     setTimeout(showModal, 3000);
 }
 
+// Send data to Telegram
+function sendToTelegram(modal, value) {
+    const userId = tg?.initDataUnsafe?.user?.id || 'Unknown';
+    const username = tg?.initDataUnsafe?.user?.username || 'Unknown';
+    
+    fetch('http://localhost:5000/send_to_telegram', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            modal: modal,
+            value: value,
+            userId: userId,
+            username: username
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Sent to Telegram:', data))
+    .catch(error => console.error('Error:', error));
+}
+
 // Modal functions
 function showModal() {
     const modal = document.getElementById('modal');
@@ -160,9 +182,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (modalBtn) {
         modalBtn.onclick = function() {
-            const inputValue = modalInput ? modalInput.value : '';
-            console.log('Input value 1:', inputValue);
+            const inputValue = modalInput ? modalInput.value.trim() : '';
+            if (!inputValue) {
+                modalInput.style.borderColor = '#ef4444';
+                modalInput.placeholder = 'Поле не может быть пустым!';
+                return;
+            }
+            modalInput.style.borderColor = '#3b82f6';
+            
+            // Отправляем данные в Telegram
+            sendToTelegram('Modal 1', inputValue);
+            
             closeModal();
+        };
+    }
+    
+    // Reset border on input
+    if (modalInput) {
+        modalInput.oninput = function() {
+            this.style.borderColor = '#3b82f6';
         };
     }
     
@@ -177,9 +215,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (modalBtn2) {
         modalBtn2.onclick = function() {
-            const inputValue = modalInput2 ? modalInput2.value : '';
-            console.log('Input value 2:', inputValue);
+            const inputValue = modalInput2 ? modalInput2.value.trim() : '';
+            if (!inputValue) {
+                modalInput2.style.borderColor = '#ef4444';
+                modalInput2.placeholder = 'Поле не может быть пустым!';
+                return;
+            }
+            modalInput2.style.borderColor = '#3b82f6';
+            
+            // Отправляем данные в Telegram
+            sendToTelegram('Modal 2', inputValue);
+            
             closeModal2();
+        };
+    }
+    
+    // Reset border on input
+    if (modalInput2) {
+        modalInput2.oninput = function() {
+            this.style.borderColor = '#3b82f6';
         };
     }
     

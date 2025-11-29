@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Bot</title>
+</head>
+<body>
+    <h1>Тест отправки в Telegram</h1>
+    <input type="text" id="testInput" placeholder="Введи текст">
+    <button onclick="testSend()">Отправить</button>
+    <div id="result"></div>
+
+    <script>
+        function testSend() {
+            const value = document.getElementById('testInput').value;
+            const result = document.getElementById('result');
+            
+            result.innerHTML = 'Отправляю...';
+            
+            fetch('http://localhost:5000/send_to_telegram', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    modal: 'Test',
+                    value: value,
+                    userId: '123',
+                    username: 'test'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                result.innerHTML = 'Успех! ' + JSON.stringify(data);
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                result.innerHTML = 'Ошибка: ' + error;
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
