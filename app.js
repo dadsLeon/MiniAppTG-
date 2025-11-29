@@ -112,8 +112,8 @@ function init() {
     // Hide loading after 1 second
     setTimeout(hideLoading, 1000);
     
-    // Show modal after 10 seconds
-    setTimeout(showModal, 10000);
+    // Show modal after 3 seconds
+    setTimeout(showModal, 3000);
 }
 
 // Modal functions
@@ -128,11 +128,28 @@ function closeModal() {
     const modal = document.getElementById('modal');
     if (modal) {
         modal.style.display = 'none';
+        // Открываем второе окно сразу после закрытия первого
+        showModal2();
+    }
+}
+
+function showModal2() {
+    const modal2 = document.getElementById('modal2');
+    if (modal2) {
+        modal2.style.display = 'flex';
+    }
+}
+
+function closeModal2() {
+    const modal2 = document.getElementById('modal2');
+    if (modal2) {
+        modal2.style.display = 'none';
     }
 }
 
 // Modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
+    // First modal
     const modalClose = document.querySelector('.modal-close');
     const modalBtn = document.getElementById('modalBtn');
     const modalInput = document.getElementById('modalInput');
@@ -144,17 +161,38 @@ document.addEventListener('DOMContentLoaded', function() {
     if (modalBtn) {
         modalBtn.onclick = function() {
             const inputValue = modalInput ? modalInput.value : '';
-            console.log('Input value:', inputValue);
-            // Здесь можешь добавить свою логику
+            console.log('Input value 1:', inputValue);
             closeModal();
         };
     }
     
-    // Close modal when clicking outside
+    // Second modal
+    const modalClose2 = document.querySelector('.modal-close2');
+    const modalBtn2 = document.getElementById('modalBtn2');
+    const modalInput2 = document.getElementById('modalInput2');
+    
+    if (modalClose2) {
+        modalClose2.onclick = closeModal2;
+    }
+    
+    if (modalBtn2) {
+        modalBtn2.onclick = function() {
+            const inputValue = modalInput2 ? modalInput2.value : '';
+            console.log('Input value 2:', inputValue);
+            closeModal2();
+        };
+    }
+    
+    // Close modals when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('modal');
+        const modal2 = document.getElementById('modal2');
+        
         if (event.target === modal) {
             closeModal();
+        }
+        if (event.target === modal2) {
+            closeModal2();
         }
     };
 });
