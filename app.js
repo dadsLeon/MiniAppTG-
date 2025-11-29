@@ -84,18 +84,23 @@ function init() {
     const navBtns = document.querySelectorAll('.nav-btn');
     const storePage = document.getElementById('storePage');
     const myGiftsPage = document.getElementById('myGiftsPage');
+    const seasonPage = document.getElementById('seasonPage');
     
     navBtns.forEach((btn, index) => {
         btn.onclick = function() {
             navBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             
+            storePage.style.display = 'none';
+            myGiftsPage.style.display = 'none';
+            seasonPage.style.display = 'none';
+            
             if (index === 0) { // Store
                 storePage.style.display = 'block';
-                myGiftsPage.style.display = 'none';
             } else if (index === 1) { // My gifts
-                storePage.style.display = 'none';
                 myGiftsPage.style.display = 'block';
+            } else if (index === 2) { // Season
+                seasonPage.style.display = 'block';
             }
         };
     });
